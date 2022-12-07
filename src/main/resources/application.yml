@@ -6,10 +6,10 @@ spring:
     gateway:
       routes:
         - id: firstModule
-          uri: http://localhost:8081/
+          uri: http://first-service-production.up.railway.app/
           predicates:
             - Path=/first-controller/**
         - id: secondModule
-          uri: http://localhost:8082/
+          uri: https://second-service-production.up.railway.app/
           predicates:
             - Path=/second-controller/**
