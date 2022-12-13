@@ -6,10 +6,22 @@ spring:
     gateway:
       routes:
         - id: firstModule
-          uri: https://first-service-production.up.railway.app/
+          uri: ${FIRST_SERVICE_HOST}
           predicates:
-            - Path=/first-controller/**
+            - Path=/first-service/**
         - id: secondModule
-          uri: https://second-service-production.up.railway.app/
+          uri: ${SECOND_SERVICE_HOST}
           predicates:
-            - Path=/second-controller/**
+            - Path=/second-service/**
+        - id: frontliner
+          uri: ${FRONTLINER_HOST}
+          predicates:
+            - Path=/
+#        - id: auth
+#          uri: http://localhost:8089/
+#          predicates:
+#            - Path=/api/auth/
+#        - id: binar
+#          uri: https://binaracademy.com/
+#          predicates:
+#            - Path=/**
